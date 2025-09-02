@@ -10,6 +10,8 @@ public class ChestManager : MonoBehaviour
     public GameObject minY;
     public GameObject maxY;
 
+    private int opendChestAmount = 0;
+
     public int numberOfChests = 5; // how many to spawn at start
     public List<GameObject> spawnedChests = new List<GameObject>();
 
@@ -32,17 +34,36 @@ public class ChestManager : MonoBehaviour
         }
     }
 
-    public bool AllChestsOpened()
+    public void CheckChestOpend()
     {
         foreach (GameObject chest in spawnedChests)
         {
             if (chest != null) // chest still exists
             {
                 Chest chestScript = chest.GetComponent<Chest>();
-                if (chestScript != null && !chestScript.isOpened)
-                    return false;
+                if (chestScript != null && chestScript.isOpened)
+                { 
+                    opendChestAmount += 1;
+                }
             }
         }
-        return true;
+    }
+
+    public void ChestPriceUpdate(int baseChestPrice)
+    {
+        CheckChestOpend();
+        int newChesthPrice = Mathf.RoundToInt(baseChestPrice * Mathf.Pow(1.5f, opendChestAmount));
+        opendChestAmount = 0;
+        foreach (GameObject chest in spawnedChests)
+        {
+            if (chest != null) // chest still exists
+            {
+                Chest chestScript = chest.GetComponent<Chest>();
+                if (chestScript != null && !chestScript.isOpened)
+                {
+                    chestScript.chestPrice = newChesthPrice;
+                }
+            }
+        }
     }
 }

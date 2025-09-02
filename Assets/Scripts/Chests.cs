@@ -7,17 +7,22 @@ public class Chest : MonoBehaviour
     private bool isBusy = false;
     private bool playerInRange = false;
 
-    private int chestPrice = 10;
+    public Sprite opendChest;
+
+    public int chestPrice;
+    private int baseChestCost = 10;
 
     public TMP_Text promptUI; 
     public GameObject powerUpSelecterPrefab;
 
     private PlayerWallet playerWallet;
 
-    void Awake()
+    private SpriteRenderer sr;
+
+    void Start()
     {
-        if (promptUI == null)
-            promptUI = GetComponentInChildren<TMP_Text>();
+        sr = GetComponent<SpriteRenderer>();
+        chestPrice = baseChestCost;
     }
 
     private void Update()
@@ -26,8 +31,12 @@ public class Chest : MonoBehaviour
         {
             if (playerWallet != null && playerWallet.SpendMoney(chestPrice))
             {
-                isOpened = true;
-                StartCoroutine(DispensePowerUp());
+                if (isOpened == false)
+                {
+                    isOpened = true;
+                    ChestManager.ChestPriceUpdate(baseChestCost);
+                    StartCoroutine(DispensePowerUp());
+                }
             }
             else
             {
@@ -59,6 +68,7 @@ public class Chest : MonoBehaviour
     private System.Collections.IEnumerator DispensePowerUp()
     {
         isBusy = true;
+        sr.sprite = opendChest;
         Debug.Log("Processing purchase...");
 
         yield return new WaitForSeconds(1f); // wait a second
