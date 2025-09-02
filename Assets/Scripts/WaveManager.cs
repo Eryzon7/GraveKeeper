@@ -1,12 +1,23 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance { get; private set; }
 
-    public MonsterSpawner[] spawners;
+    public GameObject spawnerPrefab;
+
+    public GameObject minX;
+    public GameObject maxX;
+    public GameObject minY;
+    public GameObject maxY;
+
+    public int numberOfSpawners = 5; // how many to spawn at start
+    public List<GameObject> spawners = new List<GameObject>();
     public float timeBetweenWaves = 5f; // extra rest time after wave ends
+
+    private int spawnersDone = 0;
 
     public int currentWave { get; private set; } = 0;
 
@@ -23,7 +34,22 @@ public class WaveManager : MonoBehaviour
 
     void Start()
     {
+        SpawnAllSpawners();
         StartCoroutine(WaveLoop());
+    }
+
+    private void SpawnAllSpawners()
+    {
+        for (int i = 0; i < numberOfSpawners; i++)
+        {
+            float randomX = Random.Range(minX.transform.position.x, maxX.transform.position.x);
+            float randomY = Random.Range(minY.transform.position.y, maxY.transform.position.y);
+
+            Vector3 spawnPos = new Vector3(randomX, randomY, 0f);
+
+            GameObject chest = Instantiate(spawnerPrefab, spawnPos, Quaternion.identity);
+            spawners.Add(chest);
+        }
     }
 
     private IEnumerator WaveLoop()
@@ -36,8 +62,12 @@ public class WaveManager : MonoBehaviour
             // Trigger all graveyards
             foreach (var spawner in spawners)
             {
-                spawner.monstersPerWave = currentWave * 3; // scale number of zombies
-                spawner.StartWave();
+                var spawnerScript = spawner.GetComponent<MonsterSpawner>();
+                if (spawnerScript != null)
+                {
+                    spawnerScript.monstersPerWave = currentWave * 3;
+                    spawnerScript.StartWave();
+                }
             }
 
             // Wait until all enemies from all spawners are dead
@@ -52,11 +82,19 @@ public class WaveManager : MonoBehaviour
 
     private bool AllEnemiesDefeated()
     {
+        spawnersDone = 0;
         foreach (var spawner in spawners)
         {
-            if (spawner.ActiveEnemies > 0)
-                return false;
+            var spawnerScript = spawner.GetComponent<MonsterSpawner>();
+            if (spawnerScript.ActiveEnemies < 0)
+            {
+                spawnersDone++;
+            }
         }
-        return true;
+        if (spawnersDone == spawners.Count)
+        {
+            return true;
+        }
+        return false;
     }
 }

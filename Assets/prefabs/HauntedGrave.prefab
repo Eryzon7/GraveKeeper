@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 172626504, guid: c4d2ccab0c2ad7e47853b6e31a7ac7c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -147,6 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a29d6a7bf3b0641be2e39c34bd8687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombiePrefab: {fileID: 4309109594998140882, guid: 5d4264f59abe09742b2dffdec5491f22, type: 3}
-  spawnInterval: 2
+  monsterPrefab: {fileID: 4309109594998140882, guid: 5d4264f59abe09742b2dffdec5491f22, type: 3}
   monstersPerWave: 5
