@@ -1,17 +1,24 @@
 using UnityEngine;
+using TMPro;
 
 public class Chest : MonoBehaviour
 {
-    private bool isOpened = false;
+    public bool isOpened = false;
     private bool isBusy = false;
     private bool playerInRange = false;
 
     private int chestPrice = 10;
 
-    public GameObject promptUI; // UI that says "Press E to buy Heal Pack"
+    public TMP_Text promptUI; 
     public GameObject powerUpSelecterPrefab;
 
     private PlayerWallet playerWallet;
+
+    void Awake()
+    {
+        if (promptUI == null)
+            promptUI = GetComponentInChildren<TMP_Text>();
+    }
 
     private void Update()
     {
@@ -19,6 +26,7 @@ public class Chest : MonoBehaviour
         {
             if (playerWallet != null && playerWallet.SpendMoney(chestPrice))
             {
+                isOpened = true;
                 StartCoroutine(DispensePowerUp());
             }
             else
@@ -34,7 +42,7 @@ public class Chest : MonoBehaviour
         {
             playerInRange = true;
             playerWallet = collision.GetComponent<PlayerWallet>();
-            if (promptUI != null) promptUI.SetActive(true);
+            if (promptUI != null) promptUI.gameObject.SetActive(true);
         }
     }
 
@@ -44,7 +52,7 @@ public class Chest : MonoBehaviour
         {
             playerInRange = false;
             playerWallet = null;
-            if (promptUI != null) promptUI.SetActive(false);
+            if (promptUI != null) promptUI.gameObject.SetActive(false);
         }
     }
 
