@@ -14,10 +14,11 @@ public class Chest : MonoBehaviour
 
     public TMP_Text promptUI; 
     public GameObject powerUpSelecterPrefab;
+    public GameObject chestManager;
 
     private PlayerWallet playerWallet;
-
     private SpriteRenderer sr;
+    
 
     void Start()
     {
@@ -34,7 +35,7 @@ public class Chest : MonoBehaviour
                 if (isOpened == false)
                 {
                     isOpened = true;
-                    ChestManager.ChestPriceUpdate(baseChestCost);
+                    ChestManager.Instance.ChestPriceUpdate(baseChestCost);
                     StartCoroutine(DispensePowerUp());
                 }
             }

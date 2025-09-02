@@ -4,7 +4,7 @@ using UnityEngine;
 public class ChestManager : MonoBehaviour
 {
     public GameObject chestPrefab;
-    
+
     public GameObject minX;
     public GameObject maxX;
     public GameObject minY;
@@ -14,6 +14,18 @@ public class ChestManager : MonoBehaviour
 
     public int numberOfChests = 5; // how many to spawn at start
     public List<GameObject> spawnedChests = new List<GameObject>();
+
+    public static ChestManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     private void Start()
     {
