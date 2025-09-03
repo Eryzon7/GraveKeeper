@@ -74,6 +74,7 @@ public class ChestManager : MonoBehaviour
                 if (chestScript != null && !chestScript.isOpened)
                 {
                     chestScript.chestPrice = newChesthPrice;
+                    chestScript.promptUI.text = "$" + newChesthPrice;
                 }
             }
         }

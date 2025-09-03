@@ -86,7 +86,7 @@ public class WaveManager : MonoBehaviour
         foreach (var spawner in spawners)
         {
             var spawnerScript = spawner.GetComponent<MonsterSpawner>();
-            if (spawnerScript.ActiveEnemies < 0)
+            if (spawnerScript.ActiveEnemies == 0)
             {
                 spawnersDone++;
             }

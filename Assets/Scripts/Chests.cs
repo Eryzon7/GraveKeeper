@@ -48,7 +48,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && isOpened == false)
         {
             playerInRange = true;
             playerWallet = collision.GetComponent<PlayerWallet>();
