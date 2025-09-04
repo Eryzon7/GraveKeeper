@@ -62,7 +62,7 @@ public class WaveManager : MonoBehaviour
             // Trigger all graveyards
             foreach (var spawner in spawners)
             {
-                var spawnerScript = spawner.GetComponent<MonsterSpawner>();
+                var spawnerScript = spawner.GetComponent<EnemySpawner>();
                 if (spawnerScript != null)
                 {
                     spawnerScript.monstersPerWave = currentWave * 3;
@@ -85,7 +85,7 @@ public class WaveManager : MonoBehaviour
         spawnersDone = 0;
         foreach (var spawner in spawners)
         {
-            var spawnerScript = spawner.GetComponent<MonsterSpawner>();
+            var spawnerScript = spawner.GetComponent<EnemySpawner>();
             if (spawnerScript.ActiveEnemies == 0)
             {
                 spawnersDone++;

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-public class MonsterSpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     public GameObject monsterPrefab;
     public int monstersPerWave = 5;

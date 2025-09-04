@@ -19,7 +19,6 @@ public class Chest : MonoBehaviour
     private PlayerWallet playerWallet;
     private SpriteRenderer sr;
     
-
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
