@@ -69076,6 +69076,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 371968063}
+  dashSpeed: 15
+  dashDuration: 0.2
+  dashCooldown: 1
 --- !u!50 &371968063
 Rigidbody2D:
   serializedVersion: 5
