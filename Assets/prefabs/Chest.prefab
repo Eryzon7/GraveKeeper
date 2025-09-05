@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 2914324170404556845}
   m_Layer: 7
   m_Name: Chest
-  m_TagString: Untagged
+  m_TagString: Chests
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,5 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpened: 0
   opendChest: {fileID: 1777749549, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  chestPrice: 0
   promptUI: {fileID: 1233026216328791967}
   powerUpSelecterPrefab: {fileID: 6944027254441647914, guid: f89d840b02a7c6443a4e1d6d7ed026c4, type: 3}
+  chestManager: {fileID: 0}

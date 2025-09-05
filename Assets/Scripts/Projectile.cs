@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
     public float lifeTime = 2f;
+    private int enemiesHit = 0;
 
 
     private PlayerStats OwnerStats;
@@ -30,7 +31,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Drops"))
+        if (other.CompareTag("Player") || other.CompareTag("Drops") || other.CompareTag("Chests"))
             return;
         
         if (other.CompareTag("Enemy"))
@@ -38,9 +39,11 @@ public class Projectile : MonoBehaviour
             EnemyHealth zombie = other.GetComponent<EnemyHealth>();
             if (zombie != null)
             {
+                enemiesHit++;
                 zombie.TakeDamage(OwnerStats.attackDamage);
             }
         }
+        if (OwnerStats.weaponPierce <= enemiesHit)
         Destroy(gameObject);
     }
 }

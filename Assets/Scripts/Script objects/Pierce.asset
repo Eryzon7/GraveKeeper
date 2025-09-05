@@ -15,5 +15,7 @@ MonoBehaviour:
   powerUpName: Pierce
   description: 
   icon: {fileID: -1786786079, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  value: 5.315585
   type: 2
-  value: 1
+  minValue: 1
+  maxValue: 1
