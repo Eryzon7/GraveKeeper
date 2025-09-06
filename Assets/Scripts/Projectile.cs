@@ -6,11 +6,8 @@ public class Projectile : MonoBehaviour
     public float lifeTime = 2f;
     private int enemiesHit = 0;
 
-
     private PlayerStats OwnerStats;
     private Vector2 direction;
-
-    
 
     public void SetDirection(Vector2 dir)
     {
@@ -41,6 +38,8 @@ public class Projectile : MonoBehaviour
             {
                 enemiesHit++;
                 zombie.TakeDamage(OwnerStats.attackDamage);
+                AggroSystem bossAggro = FindFirstObjectByType<AggroSystem>();
+                bossAggro.AddThreat(OwnerStats.gameObject, OwnerStats.attackDamage);
             }
         }
         if (OwnerStats.weaponPierce <= enemiesHit)

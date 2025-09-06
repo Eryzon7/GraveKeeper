@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
  
     private EnemyStats enemyStats;
-    private EnemyDrops drops;
+    
 
     // Event that other scripts (like MonsterSpawner) can subscribe to
     public event Action OnDeath;
@@ -14,7 +14,6 @@ public class EnemyHealth : MonoBehaviour
     private void Awake()
     {
         enemyStats = GetComponent<EnemyStats>();
-        drops = GetComponent<EnemyDrops>();
         enemyStats.currentHealth = enemyStats.maxHealth;
     }
 
@@ -30,7 +29,6 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        drops.DropCoins();
         OnDeath?.Invoke();  // fire event to notify listeners
         Destroy(gameObject);
     }

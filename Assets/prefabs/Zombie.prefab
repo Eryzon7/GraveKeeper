@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3262834200371989869}
-  - component: {fileID: 6765807268564887748}
+  - component: {fileID: 2392266212526470811}
+  - component: {fileID: 4124151740920719832}
   - component: {fileID: 7211562832086659802}
   - component: {fileID: 8155377023780337251}
   - component: {fileID: 6856681753729762420}
@@ -38,7 +39,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6765807268564887748
+--- !u!114 &2392266212526470811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,7 +48,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4309109594998140882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41768556403bc5242ab5675312e2e3b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 31de3525985e82a44b2be01e0ece6c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 8155377023780337251}
+  health: {fileID: 7211562832086659802}
+  actions: {fileID: 4124151740920719832}
+  drops: {fileID: 6856681753729762420}
+--- !u!114 &4124151740920719832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4309109594998140882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a6f3645a056bb4d9410b5c4bcbcaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7211562832086659802
@@ -77,7 +94,6 @@ MonoBehaviour:
   attackDamage: 3
   attackSpeed: 1
   attackDelay: 1
-  weaponPierce: 1
   attackRange: 1
   moveSpeed: 2
   maxHealth: 3
