@@ -69752,6 +69752,63 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1001 &556634588
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4929234655925103469, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
+      propertyPath: m_Name
+      value: ExplodingZombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216430726043124657, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.034891
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216430726043124657, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.0641751
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216430726043124657, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.013265733
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216430726043124657, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216430726043124657, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216430726043124657, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216430726043124657, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216430726043124657, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216430726043124657, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216430726043124657, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
 --- !u!1 &571870872
 GameObject:
   m_ObjectHideFlags: 0
@@ -70345,7 +70402,6 @@ MonoBehaviour:
   attackDamage: 40
   attackSpeed: 1
   attackDelay: 1
-  weaponPierce: 1
   attackRange: 1
   moveSpeed: 5
   maxHealth: 300
@@ -70480,7 +70536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6d4d62edb3dd940a14e558df96b976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodingZombie: {fileID: 0}
+  explodingZombie: {fileID: 4929234655925103469, guid: db8d9f414b0b80f4898e67bc4d5b50ec, type: 3}
   spawnpoint: []
 --- !u!114 &1115565527
 MonoBehaviour:
@@ -71308,3 +71364,4 @@ SceneRoots:
   - {fileID: 605312099}
   - {fileID: 371968064}
   - {fileID: 1115565523}
+  - {fileID: 556634588}

@@ -20,7 +20,7 @@ public class EnemyActions : MonoBehaviour
         enemyStats.currentHealth = enemyStats.maxHealth;
     }
 
-    void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         if (player == null) return;
 
@@ -44,7 +44,7 @@ public class EnemyActions : MonoBehaviour
             transform.localScale = new Vector3(baseScale.x, baseScale.y, baseScale.z);
     }
 
-    void TryAttack()
+    public virtual void TryAttack()
     {
         if (Time.time >= lastAttackTime + enemyStats.attackDelay)
         {
