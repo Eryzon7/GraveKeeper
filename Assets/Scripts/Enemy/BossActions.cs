@@ -12,8 +12,6 @@ public class BossActions : EnemyActions
 
     public override void TryAttack()
     {
-        
-            _attacks.attackSet(4/*Random.Range(1, 4)*/);
-        
+        _attacks.attackSet(1/*Random.Range(1, 4)*/);
     }  
 }

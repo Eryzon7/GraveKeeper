@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class ShotgunAttack : MonoBehaviour
 {
@@ -17,21 +18,10 @@ public class ShotgunAttack : MonoBehaviour
         enemyStats = GetComponent<EnemyStats>();
     }
 
-    public void Shotgun()
+    public IEnumerator Shotgun()
     {
         GameObject target = aggro.GetHighestThreatTarget();
-        if (target == null)
-        {
-            Debug.LogWarning("ShotgunAttack: No target found.");
-            return;
-        }
-
-        if (firePoint == null)
-        {
-            Debug.LogError("ShotgunAttack: FirePoint is not assigned!");
-            return;
-        }
-
+        
         Vector2 direction = (target.transform.position - firePoint.position).normalized;
 
         float startAngle = -spreadAngle / 2f;
@@ -52,5 +42,6 @@ public class ShotgunAttack : MonoBehaviour
             if (rb != null)
                 rb.linearVelocity = rotation * Vector2.right * projectileSpeed;
         }
+        yield return new WaitForSeconds(1f);
     }
 }

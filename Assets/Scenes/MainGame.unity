@@ -70579,6 +70579,11 @@ Transform:
   - {fileID: 402454321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1454481413 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7828519605919581400, guid: e14574d15ce428d449b31b89bf91fae0, type: 3}
+  m_PrefabInstance: {fileID: 4080746187189616083}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1459852590
 GameObject:
   m_ObjectHideFlags: 0
@@ -71008,9 +71013,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1062598448038333957, guid: e14574d15ce428d449b31b89bf91fae0, type: 3}
+      propertyPath: projectileSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286101069458875126, guid: e14574d15ce428d449b31b89bf91fae0, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1454481413}
+    - target: {fileID: 3286101069458875126, guid: e14574d15ce428d449b31b89bf91fae0, type: 3}
+      propertyPath: projectileSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4107221855956640685, guid: e14574d15ce428d449b31b89bf91fae0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.89
+      value: -10.46
       objectReference: {fileID: 0}
     - target: {fileID: 4107221855956640685, guid: e14574d15ce428d449b31b89bf91fae0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -71051,6 +71068,10 @@ PrefabInstance:
     - target: {fileID: 6898219426129334744, guid: e14574d15ce428d449b31b89bf91fae0, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828519605919581400, guid: e14574d15ce428d449b31b89bf91fae0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

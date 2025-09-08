@@ -23,21 +23,41 @@ public class BossAttacks : MonoBehaviour
         switch (move)
         {
             case 1:
-                //basic attack random ammount
-                shotgun.Shotgun();
+                int random = Random.Range(3, 7);
+                for (int i = 0; i < random; i++)
+                {
+                    StartCoroutine(shotgun.Shotgun());
+                }
                 break;
             case 2:
-                StartCoroutine(spiral.Spiral(3f, 0.1f));
+                StartCoroutine(MovementPause(3));
+                StartCoroutine(spiral.Spiral(3f, 0.05f));
                 break;
             case 3:
                 StartCoroutine(meteor.MeteorShower());
                 break;
             case 4:
+                Debug.Log("attackSet");
+                StartCoroutine(MovementPause(1));
                 spawnZombie.SpawnZombie();
                 break;
             case 5:
                 //circle nuke
                 break;
         }
+    }
+
+    private IEnumerator MovementPause(int pauseTime)
+    {
+        EnemyStats movement = GetComponent<EnemyStats>();
+        float originalMoveSpeed = movement.moveSpeed;
+        movement.moveSpeed = 0;
+
+        // spawn the zombies
+
+        // wait before moving again
+        yield return new WaitForSeconds(pauseTime);
+
+        movement.moveSpeed = originalMoveSpeed;
     }
 }

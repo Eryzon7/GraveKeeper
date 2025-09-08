@@ -11,8 +11,6 @@ public class BossProjectile : Projectile
 
     public override void OnTriggerEnter2D(Collider2D other)
     {
-        
-
         if (other.CompareTag("Enemy") || other.CompareTag("Drops") || other.CompareTag("Chests"))
             return;
 
