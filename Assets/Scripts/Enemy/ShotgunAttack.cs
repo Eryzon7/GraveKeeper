@@ -9,16 +9,28 @@ public class ShotgunAttack : MonoBehaviour
     public float projectileSpeed = 10f;
 
     private AggroSystem aggro;
+    private EnemyStats enemyStats;
 
     private void Start()
     {
         aggro = GetComponent<AggroSystem>();
+        enemyStats = GetComponent<EnemyStats>();
     }
 
     public void Shotgun()
     {
         GameObject target = aggro.GetHighestThreatTarget();
-        if (target == null) return;
+        if (target == null)
+        {
+            Debug.LogWarning("ShotgunAttack: No target found.");
+            return;
+        }
+
+        if (firePoint == null)
+        {
+            Debug.LogError("ShotgunAttack: FirePoint is not assigned!");
+            return;
+        }
 
         Vector2 direction = (target.transform.position - firePoint.position).normalized;
 
@@ -31,6 +43,11 @@ public class ShotgunAttack : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + currentAngle);
 
             GameObject proj = Instantiate(projectilePrefab, firePoint.position, rotation);
+            BossProjectile bp = proj.GetComponent<BossProjectile>();
+            if (bp != null)
+            {
+                bp.SetOwner(enemyStats); // pass the enemy stats instance
+            }
             Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
             if (rb != null)
                 rb.linearVelocity = rotation * Vector2.right * projectileSpeed;

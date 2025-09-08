@@ -6,12 +6,13 @@ public class AggroSystem : MonoBehaviour
     private Dictionary<GameObject, float> threatTable = new Dictionary<GameObject, float>();
 
     void Update()
-    {
+    {   
         List<GameObject> keys = new List<GameObject>(threatTable.Keys);
         foreach (var player in keys)
         {
             threatTable[player] = Mathf.Max(0, threatTable[player] - Time.deltaTime * .5f); // 2 threat per second decay
         }
+        
     }
 
     public void AddThreat(GameObject player, float amount)

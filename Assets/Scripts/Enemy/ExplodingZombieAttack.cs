@@ -8,6 +8,7 @@ public class ExplodingZombieAttack : MonoBehaviour
     {
         for (int i = 0; i < spawnpoint.Length; i++)
         {
+            Debug.Log("spawn");
             Instantiate(explodingZombie, spawnpoint[i].position, Quaternion.identity);
         }
     }

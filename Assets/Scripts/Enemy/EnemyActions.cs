@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class EnemyActions : MonoBehaviour
 {
-    private Transform player;
-    private Rigidbody2D rb;
-    private Vector3 baseScale;
-    private float lastAttackTime = -Mathf.Infinity;
+    protected Transform player;
+    protected Rigidbody2D rb;
+    protected Vector3 baseScale;
+    protected float lastAttackTime = -Mathf.Infinity;
 
 
-    private EnemyStats enemyStats;
+    protected EnemyStats enemyStats;
 
-    void Start()
+    public virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyStats = GetComponent<EnemyStats>();
@@ -32,8 +32,9 @@ public class EnemyActions : MonoBehaviour
         {
             rb.MovePosition(rb.position + direction * enemyStats.moveSpeed * Time.fixedDeltaTime);
         }
-        else
+        else if (Time.time >= lastAttackTime + enemyStats.attackDelay)
         {
+            lastAttackTime = Time.time;
             TryAttack();
         }
 
@@ -46,14 +47,9 @@ public class EnemyActions : MonoBehaviour
 
     public virtual void TryAttack()
     {
-        if (Time.time >= lastAttackTime + enemyStats.attackDelay)
-        {
-            lastAttackTime = Time.time;
-            player.GetComponent<PlayerHealth>()?.TakeDamage(enemyStats.attackDamage);
-
-            Debug.Log("Zombie attacked player!");
-            // here you can trigger attack animation too
-        }
+        player.GetComponent<PlayerHealth>()?.TakeDamage(enemyStats.attackDamage);
+        Debug.Log("Zombie attacked player!");
+        // here you can trigger attack animation too
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

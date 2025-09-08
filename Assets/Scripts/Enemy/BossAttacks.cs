@@ -7,16 +7,18 @@ public class BossAttacks : MonoBehaviour
     private ShotgunAttack shotgun;
     private SpiralAttack spiral;
     private MeteorAttack meteor;
+    private ExplodingZombieAttack spawnZombie;
 
     private void Start()
     {
         shotgun = GetComponent<ShotgunAttack>();
         spiral = GetComponent<SpiralAttack>();
         meteor = GetComponent<MeteorAttack>();
+        spawnZombie = GetComponent<ExplodingZombieAttack>();
     }
 
 
-    void attackSet(int move)
+    public void attackSet(int move)
     {
         switch (move)
         {
@@ -31,7 +33,7 @@ public class BossAttacks : MonoBehaviour
                 StartCoroutine(meteor.MeteorShower());
                 break;
             case 4:
-                //cloud chase
+                spawnZombie.SpawnZombie();
                 break;
             case 5:
                 //circle nuke

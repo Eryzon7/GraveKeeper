@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    public void SetOwner(PlayerStats stats)
+    public virtual void SetOwner(PlayerStats stats)
     {
         OwnerStats = stats;
     }
@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
         transform.position += (Vector3)direction * speed * Time.deltaTime;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") || other.CompareTag("Drops") || other.CompareTag("Chests"))
             return;
