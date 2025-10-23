@@ -21,27 +21,33 @@ public class ShotgunAttack : MonoBehaviour
     public IEnumerator Shotgun()
     {
         GameObject target = aggro.GetHighestThreatTarget();
-        
-        Vector2 direction = (target.transform.position - firePoint.position).normalized;
+        if (target == null) yield break;
 
-        float startAngle = -spreadAngle / 2f;
+        // Base direction toward target
+        Vector2 baseDirection = (target.transform.position - firePoint.position).normalized;
+        float baseAngle = Mathf.Atan2(baseDirection.y, baseDirection.x) * Mathf.Rad2Deg;
+
+        float startAngle = baseAngle - spreadAngle / 2f;
         float angleIncrement = spreadAngle / (projectileCount - 1);
 
         for (int i = 0; i < projectileCount; i++)
         {
             float currentAngle = startAngle + i * angleIncrement;
-            Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + currentAngle);
+            Quaternion rotation = Quaternion.Euler(0, 0, currentAngle);
 
             GameObject proj = Instantiate(projectilePrefab, firePoint.position, rotation);
             BossProjectile bp = proj.GetComponent<BossProjectile>();
             if (bp != null)
-            {
-                bp.SetOwner(enemyStats); // pass the enemy stats instance
-            }
+                bp.SetOwner(enemyStats);
+
             Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
             if (rb != null)
-                rb.linearVelocity = rotation * Vector2.right * projectileSpeed;
+            {
+                Vector2 shootDir = rotation * Vector2.right; // This gives each projectile its own direction
+                rb.linearVelocity = shootDir * projectileSpeed;
+            }
         }
-        yield return new WaitForSeconds(1f);
     }
+
 }
+

@@ -16,7 +16,7 @@ public class BossAttacks : MonoBehaviour
         meteor = GetComponent<MeteorAttack>();
         spawnZombie = GetComponent<ExplodingZombieAttack>();
     }
-
+    
 
     public void attackSet(int move)
     {
@@ -27,6 +27,7 @@ public class BossAttacks : MonoBehaviour
                 for (int i = 0; i < random; i++)
                 {
                     StartCoroutine(shotgun.Shotgun());
+                    StartCoroutine(AttackPause(1)); 
                 }
                 break;
             case 2:
@@ -59,5 +60,10 @@ public class BossAttacks : MonoBehaviour
         yield return new WaitForSeconds(pauseTime);
 
         movement.moveSpeed = originalMoveSpeed;
+    }
+
+    private IEnumerator AttackPause(int pauseTime)
+    {
+        yield return new WaitForSeconds(pauseTime);
     }
 }
