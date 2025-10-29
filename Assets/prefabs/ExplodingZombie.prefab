@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4514181797501382211}
   - component: {fileID: 6980541223881412374}
   - component: {fileID: 2817176554782508336}
-  - component: {fileID: 1726335047452362179}
   - component: {fileID: 2429343577776514399}
+  - component: {fileID: 1726335047452362179}
   - component: {fileID: 6958593109142661340}
   - component: {fileID: -8072381668048884353}
   m_Layer: 0
@@ -142,6 +142,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75614c135c6c6e4984a392363403cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2429343577776514399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929234655925103469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516db1567ba8fea44b51f4a66fefe0a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCoinPrefab: {fileID: 89700927716440404, guid: 0598b19008eda574788f62e0499047e5, type: 3}
+  silverCoinPrefab: {fileID: 5040058631472730333, guid: 5cde5f3c0c8fa5d47a90b1a6a2bc0a45, type: 3}
+  bronzeCoinPrefab: {fileID: 6284292417575590583, guid: 2f88382d257734b488a1fba48ec7d021, type: 3}
 --- !u!114 &1726335047452362179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,21 +173,6 @@ MonoBehaviour:
   health: {fileID: 2817176554782508336}
   actions: {fileID: 4514181797501382211}
   drops: {fileID: 2429343577776514399}
---- !u!114 &2429343577776514399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4929234655925103469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 516db1567ba8fea44b51f4a66fefe0a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goldCoinPrefab: {fileID: 89700927716440404, guid: 0598b19008eda574788f62e0499047e5, type: 3}
-  silverCoinPrefab: {fileID: 5040058631472730333, guid: 5cde5f3c0c8fa5d47a90b1a6a2bc0a45, type: 3}
-  bronzeCoinPrefab: {fileID: 6284292417575590583, guid: 2f88382d257734b488a1fba48ec7d021, type: 3}
 --- !u!50 &6958593109142661340
 Rigidbody2D:
   serializedVersion: 5
