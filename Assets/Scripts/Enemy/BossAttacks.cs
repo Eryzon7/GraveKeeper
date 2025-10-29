@@ -26,8 +26,7 @@ public class BossAttacks : MonoBehaviour
                 int random = Random.Range(3, 7);
                 for (int i = 0; i < random; i++)
                 {
-                    StartCoroutine(shotgun.Shotgun());
-                    StartCoroutine(AttackPause(1)); 
+                    StartCoroutine(AttackPause(1, shotgun.Shotgun())); 
                 }
                 break;
             case 2:
@@ -62,8 +61,10 @@ public class BossAttacks : MonoBehaviour
         movement.moveSpeed = originalMoveSpeed;
     }
 
-    private IEnumerator AttackPause(int pauseTime)
+    private IEnumerator AttackPause(int pauseTime, IEnumerator attack)
     {
-        yield return new WaitForSeconds(pauseTime);
+        StartCoroutine(attack);
+        StopCoroutine(attack);
+       yield return new WaitForSeconds(pauseTime);
     }
 }

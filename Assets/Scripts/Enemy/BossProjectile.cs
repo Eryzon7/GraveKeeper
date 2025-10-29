@@ -14,10 +14,11 @@ public class BossProjectile : Projectile
         if (other.CompareTag("Enemy") || other.CompareTag("Drops") || other.CompareTag("Chests"))
             return;
 
-        Debug.Log($"Projectile hit: {other.name}");
+       
 
         if (other.CompareTag("Player"))
         {
+            Debug.Log($"Projectile hit: {other.name}");
             PlayerHealth player = other.GetComponent<PlayerHealth>();
             if (player != null)
             {
