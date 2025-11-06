@@ -15,7 +15,7 @@ public class WaveManager : MonoBehaviour
 
     public int numberOfSpawners = 5; // how many to spawn at start
     public List<GameObject> spawners = new List<GameObject>();
-    public float timeBetweenWaves = 5f; // extra rest time after wave ends
+    public float timeBetweenWaves = 10f; // extra rest time after wave ends
 
     private int spawnersDone = 0;
 

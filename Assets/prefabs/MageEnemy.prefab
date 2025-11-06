@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8411297287176812991}
   - component: {fileID: 4759634647053909825}
   - component: {fileID: 5557895761734182949}
-  - component: {fileID: 4503646008740129417}
   - component: {fileID: 4614512260814865367}
   - component: {fileID: 7665296009060630076}
   m_Layer: 0
@@ -98,6 +97,8 @@ MonoBehaviour:
   magicCirclePrefab: {fileID: 0}
   attackRange: 8
   attackCooldown: 3
+  spellArea: 2
+  castingTime: 1
 --- !u!114 &8411297287176812991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,27 +147,6 @@ MonoBehaviour:
   goldCoinPrefab: {fileID: 0}
   silverCoinPrefab: {fileID: 0}
   bronzeCoinPrefab: {fileID: 0}
---- !u!114 &4503646008740129417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 266082566004673369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87ba893b3f13454ba996168e2415c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 3
-  attackSpeed: 1
-  attackDelay: 1
-  attackRange: 1
-  moveSpeed: 2
-  maxHealth: 3
-  currentHealth: 0
-  goldValue: 3
-  goldGrowth: 2
 --- !u!212 &4614512260814865367
 SpriteRenderer:
   m_ObjectHideFlags: 0
