@@ -20,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float amount)
     {
         enemyStats.currentHealth -= amount;
+        Console.WriteLine("--damage taken--");
 
         if (enemyStats.currentHealth <= 0)
         {
@@ -29,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        Console.WriteLine("--died--");
         OnDeath?.Invoke();  // fire event to notify listeners
         Destroy(gameObject);
     }

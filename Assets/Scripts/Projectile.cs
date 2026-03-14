@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
                 enemiesHit++;
                 zombie.TakeDamage(OwnerStats.attackDamage);
                 AggroSystem bossAggro = FindFirstObjectByType<AggroSystem>();
-                bossAggro.AddThreat(OwnerStats.gameObject, OwnerStats.attackDamage);
+                //bossAggro.AddThreat(OwnerStats.gameObject, OwnerStats.attackDamage);
             }
         }
         if (OwnerStats.weaponPierce <= enemiesHit)
